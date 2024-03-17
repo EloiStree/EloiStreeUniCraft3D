@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Images Loader</title>
+<style>
+    /* Optional: Add some basic styling */
+    img {
+        max-width: 200px;
+        max-height: 200px;
+        margin: 5px;
+        border: 1px solid #ccc;
+    }
+</style>
+</head>
+<body>
+<div id="imageContainer"></div>
+
+<script>
+window.onload = function() {
+    var imageContainer = document.getElementById('imageContainer');
+    var imageFolder = 'images/'; // Change this to your image folder path
+
+    // Function to load all images in the folder
+    function loadImages() {
+        // Assuming your images are named sequentially like image1.jpg, image2.jpg, etc.
+        for (var i = 1; i <= 10; i++) { // Change 10 to the total number of images you have
+            var img = new Image();
+            var randomIndex = Math.floor(Math.random() * 10) + 1; // Change 10 to the total number of images you have
+            img.src = imageFolder + 'image' + randomIndex + '.jpg'; // Adjust file extension as needed
+            img.alt = 'Image ' + randomIndex;
+            imageContainer.appendChild(img);
+        }
+    }
+
+    loadImages();
+};
+</script>
+</body>
+</html>
